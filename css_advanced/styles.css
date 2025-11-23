@@ -1,0 +1,411 @@
+/* ===================================
+   0. VARIABLES & BASE
+   =================================== */
+:root {
+  --primary-color: #9440d3; /* Purple button */
+  --dark-bg: #071620; /* Dark background */
+  --text-color-light: #ffffff;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--text-color-light);
+  line-height: 1.5;
+  background-color: var(--dark-bg);
+  margin: 0;
+}
+
+/* ===================================
+   1. CONTAINER
+   =================================== */
+.container {
+  max-width: 1100px; /* Consistent width for all sections */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ===================================
+   2. HEADER / NAV
+   =================================== */
+.header-nav {
+  position: relative;
+  z-index: 10;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  gap: 80px; /* Space between logo and nav */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px; /* Space between links */
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ===================================
+   3. HERO SECTION
+   =================================== */
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    /* lighter overlay */ url("images/Object.png");
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+  min-height: 850px;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  margin-top: -80px;
+  text-align: center;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-title {
+  font-size: 4rem; /* Bigger hero text */
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.subtitle-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* More spacing between SMILES, GRIN, LAUGH */
+  margin-bottom: 50px;
+}
+
+.subtitle-group span {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* REGISTER BUTTON */
+.btn-primary {
+  display: block;
+  margin: 20px auto 40px auto;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 20px;
+  padding: 12px 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow */
+  transition: opacity 0.3s;
+}
+
+.btn-primary:hover {
+  opacity: 0.85;
+}
+
+/* PRO CARDS */
+.pros-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 60px;
+  position: relative;
+}
+
+.pro-card {
+  text-align: center;
+}
+
+.pro-card img {
+  width: 140px; /* Bigger images */
+  height: 140px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+
+.pro-card h3 {
+  font-weight: 700; /* Bold names */
+  margin-top: 10px;
+}
+
+.pro-card p {
+  font-style: italic; /* Italic captions */
+  margin-top: 5px;
+}
+
+/* Thin white line under pro cards */
+.pros-grid::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+  margin-top: 20px;
+}
+
+/* ===================================
+   4. QUOTE SECTION
+   =================================== */
+.quote-section {
+  background-color: #c271ff;
+  padding: 80px 0;
+  color: white;
+}
+
+.quote-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.quote-img img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.quote-text blockquote {
+  font-size: 22px;
+  line-height: 1.5;
+  margin: 0 0 15px 0;
+}
+
+.quote-text h3 {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.quote-text p {
+  font-style: italic; /* Weather presenter text italicized */
+  margin: 0;
+}
+
+/* ===================================
+   5. VIDEOS SECTION
+   =================================== */
+.videos-section {
+  background-color: white;
+  padding: 60px 0;
+  color: #071629;
+}
+
+.videos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.video-card {
+  width: 22%; /* Bigger than before */
+  color: #071629;
+}
+
+.thumbnail-wrapper {
+  position: relative;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.play-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  opacity: 0.8;
+}
+
+.video-card h3 {
+  font-size: 16px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.video-desc {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.video-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.video-author img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.video-author h4 {
+  color: #c271ff;
+  font-size: 13px;
+  margin: 0;
+}
+
+.video-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stars {
+  color: #c271ff;
+  font-size: 12px;
+}
+.duration {
+  color: #c271ff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* ===================================
+   6. MEMBERSHIP SECTION
+   =================================== */
+.membership {
+  background-color: #071629;
+  padding: 60px 0;
+  text-align: center;
+}
+
+.membership-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  max-width: 1100px;
+  margin: 0 auto 40px auto;
+}
+
+.mem-item {
+  width: 22%;
+  text-align: center;
+}
+
+.mem-item img {
+  width: 40px;
+  margin-bottom: 15px;
+}
+
+.mem-item h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.mem-item p {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.free {
+  color: #c271ff;
+}
+.learn {
+  color: #c271ff;
+}
+
+/* ===================================
+   7. FAQ SECTION
+   =================================== */
+.faq-section {
+  background-color: white;
+  padding: 80px 0;
+  color: #071629;
+}
+
+.faq-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.faq-column {
+  width: 45%;
+  margin: 0 100px;
+}
+
+.faq-item {
+  margin-bottom: 30px;
+}
+
+.faq-item h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.faq-item p {
+  font-size: 13px;
+  line-height: 2;
+  color: #838a94;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* ===================================
+   8. FOOTER
+   =================================== */
+.footer {
+  background-color: #071629;
+  padding: 50px 0;
+  text-align: center;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 20px auto;
+}
+
+.social-icons i {
+  font-size: 24px;
+  margin-left: 20px;
+  color: white;
+}
+
+.copyright {
+  font-size: 12px;
+  opacity: 0.5;
+}
