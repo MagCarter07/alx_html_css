@@ -1,0 +1,234 @@
+/* ===================================
+   0. VARIABLES & BASE
+   =================================== */
+:root {
+  --primary-color: #9440d3; /* Purple button */
+  --dark-bg: #071620; /* Dark background */
+  --text-color-light: #ffffff;
+  --orange-bg: #ff6565;
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--text-color-light);
+  line-height: 1.5;
+  /* background-color: var(--dark-bg); */
+  margin: 0;
+}
+
+/* ===================================
+   1. CONTAINER
+   =================================== */
+.container {
+  max-width: 1000px; /* Consistent width for all sections */
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* ===================================
+   2. HEADER / NAV
+   =================================== */
+
+header {
+  position: sticky;
+  z-index: 10;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  gap: 80px;
+}
+
+.hero-logo {
+  width: 160px;
+  height: 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  text-transform: lowercase;
+  /* font-weight: 700; */
+  font-size: 0.9375rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger container */
+.hamburger {
+  display: none;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger .bar {
+  height: 3px;
+  background: white;
+  border-radius: 4px;
+  width: 30px;
+  transition: 0.3s ease;
+}
+
+/* Middle bar short */
+.hamburger .middle {
+  width: 20px;
+}
+
+/* ===========================
+   TURN INTO X WHEN CHECKED
+   =========================== */
+
+/* Top → rotate */
+.menu-toggle:checked + .hamburger .top {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* Middle → hide */
+.menu-toggle:checked + .hamburger .middle {
+  opacity: 0;
+}
+
+/* Bottom → rotate */
+.menu-toggle:checked + .hamburger .bottom {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ===========================
+   SHOW LINKS WHEN CHECKED
+   =========================== */
+.menu-toggle:checked ~ nav .nav-links {
+  display: flex;
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+
+/* ===================================
+   3. HERO SECTION
+   =================================== */
+.hero {
+  background-image: url("images/headphones_hero_1.jpg");
+  background-size: cover;
+  background-position: center;
+  max-height: 800px;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  margin-top: -115px;
+  text-align: center;
+}
+
+.hero-content {
+  margin-top: 375px;
+  max-width: 637px;
+}
+
+h3 {
+  font-size: 32px;
+  color: #ffffff;
+}
+
+h6 {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.cta button {
+  display: block;
+  margin: 40px auto 65px auto;
+  background-color: var(--orange-bg);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow */
+  transition: opacity 0.3s;
+}
+
+.hero-paragraph p {
+  font-size: 16px;
+  font-weight: 200;
+  color: #ffffff;
+}
+
+/* ==================================
+    responsive design - tablets
+    =================================*/
+/* Fix media query syntax errors */
+@media screen and (max-width: 900px) {
+  .container,
+  .nav-container {
+    max-width: 635px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+}
+
+/* ===========================
+   HAMBURGER MENU (MOBILE)
+   =========================== */
+/* MOBILE: Show hamburger, hide normal nav */
+@media screen and (max-width: 600px) {
+  .nav-container {
+    gap: px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin: 0 18px;
+  }
+
+  .hero-content {
+    margin-top: 260px;
+  }
+
+  .hero {
+    background-position: -500px;
+  }
+
+  /* Hide links initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+    text-align: center;
+    background: transparent;
+    margin: 18px;
+    position: absolute;
+    top: 40px;
+    left: 180px;
+  }
+
+  /* Show when checkbox is active */
+  .menu-toggle:checked ~ nav .nav-links {
+    display: flex;
+  }
+}
