@@ -1,0 +1,501 @@
+/* ===================================
+   0. VARIABLES & BASE
+   =================================== */
+:root {
+  --primary-color: #9440d3; /* Purple button */
+  --dark-bg: #071620; /* Dark background */
+  --text-color-light: #ffffff;
+  --text-color-dark: #071629;
+  --orange-bg: #ff6565;
+}
+
+@font-face {
+  font-family: "SpinCycle-3D";
+  src: url(Spin-Cycle-OT/spincycle_3d_ot.otf);
+}
+
+@font-face {
+  font-family: "SpinCycle";
+  src: url(Spin-Cycle-OT/spincycle_ot.otf);
+}
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--text-color-light);
+  line-height: 1.5;
+  /* background-color: var(--dark-bg); */
+  margin: 0;
+}
+
+/* ===================================
+   1. CONTAINER
+   =================================== */
+.container {
+  max-width: 1000px; /* Consistent width for all sections */
+  margin: 0 auto;
+}
+
+.container-1 {
+  max-width: 637px;
+  max-height: 184px; /* Consistent width for all sections */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.paragraph p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #ffffff;
+  text-align: center;
+}
+/* ===================================
+   2. HEADER / NAV
+   =================================== */
+
+header {
+  position: sticky;
+  z-index: 10;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 0;
+  gap: 80px;
+}
+
+.hero-logo {
+  width: 160px;
+  height: 32px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  text-transform: lowercase;
+  /* font-weight: 700; */
+  font-size: 0.9375rem;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+.menu-toggle {
+  display: none;
+}
+
+/* Hamburger container */
+.hamburger {
+  display: none;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger .bar {
+  height: 3px;
+  background: white;
+  border-radius: 4px;
+  width: 30px;
+  transition: 0.3s ease;
+}
+
+/* Middle bar short */
+.hamburger .middle {
+  width: 20px;
+}
+
+/* ===========================
+   TURN INTO X WHEN CHECKED
+   =========================== */
+
+/* Top → rotate */
+.menu-toggle:checked + .hamburger .top {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* Middle → hide */
+.menu-toggle:checked + .hamburger .middle {
+  opacity: 0;
+}
+
+/* Bottom → rotate */
+.menu-toggle:checked + .hamburger .bottom {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ===========================
+   SHOW LINKS WHEN CHECKED
+   =========================== */
+.menu-toggle:checked ~ nav .nav-links {
+  display: flex;
+}
+
+/* ===========================
+   MOBILE
+   =========================== */
+
+/* ===================================
+   3. HERO SECTION
+   =================================== */
+.hero {
+  background-image: url("images/headphones_hero_1.jpg");
+  background-size: cover;
+  background-position: center;
+  max-height: 800px;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  margin-top: -115px;
+  text-align: center;
+}
+
+.hero-content {
+  margin-top: 375px;
+  max-width: 637px;
+}
+
+h3 {
+  font-size: 32px;
+  color: #ffffff;
+}
+
+h6 {
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.cta button {
+  display: block;
+  margin: 40px auto 65px auto;
+  background-color: var(--orange-bg);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow */
+  transition: opacity 0.3s;
+}
+
+/* ===================================
+   4. WHAT WE DO SECTION
+   =================================== */
+.what-we-do {
+  min-height: 700px;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.what-we-do .paragraph {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-content: center;
+  height: 184px;
+  margin: 110px auto 97px;
+}
+
+.what-we-do h3 {
+  color: var(--text-color-dark);
+  font-weight: 600;
+  font-size: 48;
+  text-align: center;
+  margin: 0 auto 30px;
+}
+
+.what-we-do p {
+  color: var(--text-color-dark);
+}
+
+.services-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  max-width: 1000px;
+}
+
+.service {
+  width: 206px;
+  align-content: center;
+  padding: 0 10px;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 110px;
+}
+
+.service p {
+  font-size: 14px;
+  text-align: center;
+}
+
+.service .head {
+  color: var(--text-color-dark);
+  margin: 15px auto;
+  font-size: 18px;
+}
+.icon {
+  font-size: 100px;
+  color: var(--orange-bg);
+}
+/* ===================================
+   5. OUR RESULTS SECTION
+   =================================== */
+.our-results {
+  background-image: url(images/headphones_hero_2.jpg);
+  background-position: center;
+  background-size: cover;
+  min-height: 650px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.our-results .head-1 {
+  margin: 141px auto 40px;
+}
+
+.pentagons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 70px;
+  margin-top: 40px;
+  margin-bottom: 70px;
+}
+
+.pentagon {
+  position: relative;
+  width: 190px;
+  height: 190px;
+}
+
+.img-div img {
+  display: block;
+  max-height: 180px;
+  padding-bottom: 5px;
+}
+
+.stats {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+}
+
+.stats h2 {
+  font-size: 42px;
+  padding: 70px auto 20px;
+}
+
+.stats p {
+  font-size: 14px;
+}
+
+/* ==================================
+    6. Contact Form Section
+    =================================*/
+.contact-form-section {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  background: #ffffff;
+  height: 615px;
+}
+
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  height: 373px;
+  width: 335px;
+  margin: 110px auto 130px;
+}
+
+.contact-form-container p {
+  font-size: 32px;
+  margin-bottom: 50px;
+  color: var(--text-color-dark);
+  text-align: center;
+  font-weight: 400;
+}
+
+.contact-form {
+  max-width: 335px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form input::placeholder {
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.contact-form input {
+  width: 335px;
+  height: 18px;
+  margin-bottom: 45px;
+  border: none;
+  border-bottom: 1px solid #979797;
+  font-size: 14px;
+  outline: none;
+}
+
+.contact-btn {
+  display: block;
+  margin: 56px auto 0;
+  background-color: var(--orange-bg);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: 30px;
+  padding: 12px 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+.contact-btn:hover {
+  opacity: 0.85;
+}
+
+/* ==================================
+    7. FOOTER SECTION
+    =================================*/
+.footer {
+  background: #071427;
+  padding: 60px 0 30px;
+  text-align: center;
+  color: white;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 40px;
+  padding: 0 20px;
+}
+
+.footer-logo img {
+  width: 161px;
+  height: 32px;
+}
+
+.footer-socials span {
+  font-size: 28px;
+  padding: 6px;
+  color: #ffffff;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-copy {
+  color: #979797;
+  font-size: 12px;
+}
+/* ==================================
+    responsive design - tablets
+    =================================*/
+/* Fix media query syntax errors */
+@media screen and (max-width: 900px) {
+  .container,
+  .nav-container {
+    max-width: 635px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .pentagons-container {
+    max-width: 450px;
+  }
+
+  /* footer */
+}
+
+/* ===========================
+   HAMBURGER MENU (MOBILE)
+   =========================== */
+/* MOBILE: Show hamburger, hide normal nav */
+@media screen and (max-width: 600px) {
+  .nav-container {
+    gap: px;
+  }
+
+  .hamburger {
+    display: flex;
+    margin: 0 18px;
+  }
+
+  .hero-content {
+    margin-top: 260px;
+  }
+
+  main .paragraph {
+    padding: 0 20px;
+  }
+
+  .hero {
+    background-position: -500px;
+  }
+
+  /* Hide links initially */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px;
+    text-align: center;
+    background: transparent;
+    margin: 18px;
+    position: absolute;
+    top: 40px;
+    left: 180px;
+  }
+
+  /* Show when checkbox is active */
+  .menu-toggle:checked ~ nav .nav-links {
+    display: flex;
+  }
+
+  /* footer */
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .footer-socials {
+      margin-top: 40px;
+    }
+  }
+}
